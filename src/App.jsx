@@ -746,7 +746,7 @@ function App() {
               }, 100);
             }} />
           : activePage === 'about-us'
-            ? <AboutUsPage onBack={() => setActivePage('home')} />
+            ? <AboutUsPage onBack={() => setActivePage('home')} onNavigate={setActivePage} />
             : <TeamProfilePage member={teamMembers.find(m => m.id === activePage)} onBack={() => setActivePage('home')} />
       ) : (
         <main>
@@ -1397,10 +1397,10 @@ function App() {
 
       {/* Floating Action Buttons */}
       <div style={{ position: 'fixed', bottom: '24px', right: '24px', display: 'flex', flexDirection: 'column', gap: '16px', zIndex: 9999 }}>
-        <a href="tel:+919493685963" style={{ width: '60px', height: '60px', borderRadius: '50%', background: '#1877F2', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.3)', transition: 'transform 0.2s', textDecoration: 'none' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}>
+        <a href="tel:+919493685963" style={{ width: 'clamp(45px, 8vw, 60px)', height: 'clamp(45px, 8vw, 60px)', borderRadius: '50%', background: '#1877F2', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.3)', transition: 'transform 0.2s', textDecoration: 'none' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}>
           <Phone size={28} />
         </a>
-        <a href="https://wa.me/919493685963" target="_blank" rel="noreferrer" style={{ width: '60px', height: '60px', borderRadius: '50%', background: '#25D366', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.3)', transition: 'transform 0.2s', textDecoration: 'none' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}>
+        <a href="https://wa.me/919493685963" target="_blank" rel="noreferrer" style={{ width: 'clamp(45px, 8vw, 60px)', height: 'clamp(45px, 8vw, 60px)', borderRadius: '50%', background: '#25D366', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.3)', transition: 'transform 0.2s', textDecoration: 'none' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}>
           <MessageCircle size={28} />
         </a>
       </div>

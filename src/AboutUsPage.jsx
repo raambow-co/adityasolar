@@ -1,61 +1,50 @@
-import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowLeft, Target, Eye, Heart, ShieldCheck, Settings, Users, Lightbulb } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ArrowRight, Award, Users, ChevronDown, ChevronUp, CheckCircle2 } from 'lucide-react';
 
-const fadeUpVariant = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+const teamMembers = [
+  {
+    id: 'vikas-teja',
+    name: 'Vikas Teja M.',
+    role: 'Founder & Proprietor',
+    desc: 'B.Tech Electrical Engineer ensuring safe, technically appropriate system designs.',
+    image: '/assets/team/md-aditya-solar.jpg'
+  },
+  {
+    id: 'vaddikasulu',
+    name: 'M. Vaddikasulu',
+    role: 'Father / Senior Advisor',
+    desc: '16+ years of practical experience in solar products, installation, and field operations.',
+    image: '/assets/team/proprietor-aditya-solar.png'
+  },
+  {
+    id: 'kiran-sai',
+    name: 'M. Kiran Sai',
+    role: 'Brother / Technical Manager',
+    desc: '6+ years of hands-on execution, testing, and system commissioning expertise.',
+    image: '/assets/team/kiran-sai.jpeg'
   }
-};
+];
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 }
-  }
-};
+const AboutUsPage = ({ onBack, onNavigate }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [showStrength, setShowStrength] = useState(false);
 
-const AboutUsPage = ({ onBack }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const services = [
-    {
-      title: "Solar Installations",
-      desc: "From residential rooftops (PM Surya Ghar Muft Bijli Yojana) to large-scale commercial implementations, we design and install high-efficiency solar power plants perfectly tailored to your energy needs.",
-      image: "/assets/solar-panels.jpeg"
-    },
-    {
-      title: "Solar Lights",
-      desc: "Reliable, robust, and automatic solar lighting solutions for streets, campuses, and agricultural lands, ensuring safety and visibility without electricity costs.",
-      image: "/assets/solar-lights.jpeg"
-    },
-    {
-      title: "Solar Water Heaters",
-      desc: "Energy-efficient thermal solutions that provide consistent hot water for domestic and commercial applications, significantly cutting down electricity usage.",
-      image: "/assets/solar-water-heater.png"
-    },
-    {
-      title: "Solar Fencing",
-      desc: "Secure your agricultural lands and properties with advanced solar security fencing that delivers non-lethal shocks to deter intruders and animals while being completely off-grid.",
-      image: "/assets/solar-fencing.jpg"
-    },
-    {
-      title: "Solar Cleaning",
-      desc: "Maximize your system's efficiency with our professional solar panel cleaning and maintenance services, ensuring peak energy generation all year round.",
-      image: "/assets/solar-cleaning.jpeg"
-    }
-  ];
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % teamMembers.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <div className="page-transition" style={{ backgroundColor: '#f8fafc', minHeight: '100vh', paddingBottom: '60px' }}>
+    <div className="page-transition" style={{ backgroundColor: '#f8fafc', minHeight: '100vh', paddingBottom: '100px' }}>
       {/* HEADER SECTION */}
-      <div style={{ backgroundColor: 'var(--primary-navy)', padding: '60px 0 60px 0', color: 'white', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ backgroundColor: 'var(--primary-navy)', paddingTop: 'clamp(100px, 15vw, 140px)', paddingBottom: 'clamp(40px, 8vw, 60px)', color: 'white', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: '-20%', right: '-5%', width: '400px', height: '400px', background: 'var(--accent-yellow)', opacity: '0.1', borderRadius: '50%', filter: 'blur(80px)' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <button 
@@ -67,151 +56,160 @@ const AboutUsPage = ({ onBack }) => {
             <ArrowLeft size={18} /> Back to Home
           </button>
           
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '40px' }}>
-            <div style={{ flex: '1 1 500px' }}>
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                style={{ fontSize: '48px', fontWeight: '800', marginBottom: '16px', letterSpacing: '-1px' }}
-              >
-                About <span style={{ color: 'var(--accent-yellow)' }}>Aditya Solar Solutions</span>
-              </motion.h1>
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                style={{ fontSize: '18px', maxWidth: '600px', opacity: 0.9, lineHeight: '1.6' }}
-              >
-                Pioneering the transition to clean, reliable, and sustainable energy in Andhra Pradesh through engineering excellence and transparent business practices.
-              </motion.p>
-            </div>
-            
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              style={{ flex: '0 0 auto' }}
-            >
-              <img 
-                src="/assets/logoaboutus.png" 
-                alt="Aditya Solar Solutions Logo" 
-                style={{ width: '220px', height: '220px', objectFit: 'contain', background: 'white', borderRadius: '32px', padding: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }}
-              />
-            </motion.div>
-          </div>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            style={{ fontSize: 'clamp(36px, 8vw, 48px)', fontWeight: '800', marginBottom: '16px', letterSpacing: '-1px' }}
+          >
+            About <span style={{ color: 'var(--accent-yellow)' }}>Aditya Solar</span>
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            style={{ fontSize: '20px', maxWidth: '700px', opacity: 0.9, lineHeight: '1.6' }}
+          >
+            A professionally managed solar energy company focused on delivering reliable and technically sound solar solutions across Andhra Pradesh.
+          </motion.p>
         </div>
       </div>
 
       <div className="container" style={{ marginTop: '60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
+        
+        {/* SPLIT LAYOUT: Text Left, Slider Right */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(30px, 5vw, 60px)', alignItems: 'stretch' }}>
           
-          {/* Main Content Column */}
-          <motion.div variants={staggerContainer} initial="hidden" animate="visible" style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
+          {/* LEFT: Content */}
+          <div style={{ flex: '1 1 min(100%, 500px)', display: 'flex', flexDirection: 'column', gap: 'clamp(20px, 4vw, 30px)' }}>
             
-            {/* What We Do */}
-            <motion.section variants={fadeUpVariant} style={{ background: 'transparent' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '32px' }}>
-                <div style={{ background: '#fef08a', padding: '12px', borderRadius: '12px' }}><Settings size={28} color="#ca8a04"/></div>
-                <h2 style={{ fontSize: '32px', color: 'var(--primary-navy)', fontWeight: '800', margin: 0 }}>What We Do</h2>
+            {/* Who We Are */}
+            <div style={{ background: 'white', padding: 'clamp(24px, 5vw, 40px)', borderRadius: '32px', boxShadow: '0 20px 40px rgba(0,0,0,0.03)', border: '1px solid #f1f5f9' }}>
+              <h2 style={{ fontSize: '28px', color: 'var(--primary-navy)', fontWeight: '800', marginBottom: '16px' }}>
+                Who We Are
+              </h2>
+              <p style={{ color: '#475569', fontSize: '16px', lineHeight: '1.8', margin: 0 }}>
+                <strong>Aditya Solar Solutions</strong> is a professionally managed solar energy company dedicated to delivering reliable, safe, and technically sound solar solutions. We specialize in bringing high-quality renewable energy projects to life—from initial planning and system design to installation, testing, commissioning, and dedicated after-sales support.
+              </p>
+            </div>
+
+            {/* Our Value Proposition */}
+            <div style={{ background: 'white', padding: 'clamp(24px, 5vw, 40px)', borderRadius: '32px', boxShadow: '0 20px 40px rgba(0,0,0,0.03)', border: '1px solid #f1f5f9' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+                <Award size={28} color="var(--accent-yellow)" />
+                <h2 style={{ fontSize: '24px', color: 'var(--primary-navy)', fontWeight: '800', margin: 0 }}>
+                  Our Value Proposition
+                </h2>
               </div>
+              <p style={{ color: '#475569', fontSize: '16px', lineHeight: '1.8', marginBottom: '20px' }}>
+                We bridge the gap between deep-rooted industry wisdom and modern engineering practices. Our strength lies in:
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <div style={{ display: 'flex', gap: '16px' }}>
+                  <div style={{ background: '#fef08a', width: '32px', height: '32px', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold', color: '#ca8a04', flexShrink: 0 }}>1</div>
+                  <p style={{ color: '#475569', fontSize: '15px', lineHeight: '1.6', margin: 0 }}>
+                    <strong style={{ color: 'var(--primary-navy)' }}>16+ Years of Collective Wisdom:</strong> Unmatched practical knowledge of solar products and field-level challenges.
+                  </p>
+                </div>
+                <div style={{ display: 'flex', gap: '16px' }}>
+                  <div style={{ background: '#fef08a', width: '32px', height: '32px', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold', color: '#ca8a04', flexShrink: 0 }}>2</div>
+                  <p style={{ color: '#475569', fontSize: '15px', lineHeight: '1.6', margin: 0 }}>
+                    <strong style={{ color: 'var(--primary-navy)' }}>Technical Excellence:</strong> Led by electrical engineers who prioritize appropriate, high-efficiency system designs.
+                  </p>
+                </div>
+                <div style={{ display: 'flex', gap: '16px' }}>
+                  <div style={{ background: '#fef08a', width: '32px', height: '32px', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold', color: '#ca8a04', flexShrink: 0 }}>3</div>
+                  <p style={{ color: '#475569', fontSize: '15px', lineHeight: '1.6', margin: 0 }}>
+                    <strong style={{ color: 'var(--primary-navy)' }}>End-to-End Execution:</strong> A dedicated professional team that handles everything from PM Surya Ghar subsidies to residential, commercial, and agricultural solar installations (including solar fencing and water heaters).
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Impact & Track Record */}
+            <div style={{ background: 'linear-gradient(135deg, var(--primary-navy), #1e3a8a)', padding: 'clamp(24px, 5vw, 40px)', borderRadius: '32px', color: 'white', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '150px', height: '150px', background: 'rgba(255,255,255,0.05)', borderRadius: '50%' }}></div>
+              <h2 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '24px' }}>
+                Impact & Track Record
+              </h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <CheckCircle2 size={20} color="var(--accent-yellow)" />
+                  <span style={{ fontSize: '16px', opacity: 0.9 }}><strong>1,200+</strong> Total Projects Completed</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <CheckCircle2 size={20} color="var(--accent-yellow)" />
+                  <span style={{ fontSize: '16px', opacity: 0.9 }}><strong>150+</strong> Solar Power Projects (inc. PM Surya Ghar)</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <CheckCircle2 size={20} color="var(--accent-yellow)" />
+                  <span style={{ fontSize: '16px', opacity: 0.9 }}><strong>1,000+</strong> Solar Fencing, Water Heaters, & Street Lights installed</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <CheckCircle2 size={20} color="var(--accent-yellow)" />
+                  <span style={{ fontSize: '16px', opacity: 0.9 }}><strong>5,000+</strong> Happy Customers served over the years</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <CheckCircle2 size={20} color="var(--accent-yellow)" />
+                  <span style={{ fontSize: '16px', opacity: 0.9 }}><strong>1,100+ Kgs</strong> of CO2 emissions reduced annually</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT: Dynamic Image Slider */}
+          <div style={{ flex: '1 1 min(100%, 500px)', display: 'flex', flexDirection: 'column' }}>
+            
+            <div style={{ position: 'relative', flex: 1, minHeight: 'clamp(400px, 60vh, 600px)', background: 'white', borderRadius: '32px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
+              <AnimatePresence initial={false}>
+                <motion.div
+                  key={currentSlide}
+                  initial={{ opacity: 0, x: '100%' }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: '-100%' }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}
+                >
+                  <div style={{ flex: '1', background: 'white', width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <img 
+                      src={teamMembers[currentSlide].image} 
+                      alt={teamMembers[currentSlide].name}
+                      style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                    />
+                  </div>
+                  <div style={{ padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: 'white', minHeight: '180px' }}>
+                    <div>
+                      <h3 style={{ fontSize: '24px', fontWeight: '800', color: 'var(--primary-navy)', marginBottom: '4px' }}>
+                        {teamMembers[currentSlide].name}
+                      </h3>
+                      <div style={{ color: 'var(--accent-green)', fontWeight: '700', fontSize: '14px', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '12px' }}>
+                        {teamMembers[currentSlide].role}
+                      </div>
+                      <p style={{ color: '#64748b', fontSize: '15px', lineHeight: '1.6', margin: 0 }}>
+                        {teamMembers[currentSlide].desc}
+                      </p>
+                    </div>
+                    <button 
+                      onClick={() => onNavigate(teamMembers[currentSlide].id)}
+                      style={{ alignSelf: 'flex-start', background: 'transparent', border: 'none', color: 'var(--primary-navy)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', padding: 0 }}
+                    >
+                      VIEW PROFILE <ArrowRight size={16} />
+                    </button>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
               
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
-                {services.map((service, index) => (
-                  <motion.div 
-                    key={index}
-                    variants={fadeUpVariant}
-                    style={{ 
-                      display: 'flex', 
-                      flexDirection: index % 2 === 0 ? 'row' : 'row-reverse', 
-                      gap: '30px', 
-                      background: 'white', 
-                      padding: '24px', 
-                      borderRadius: '24px', 
-                      boxShadow: '0 10px 30px rgba(0,0,0,0.03)', 
-                      border: '1px solid #f1f5f9',
-                      alignItems: 'center',
-                      flexWrap: 'wrap'
-                    }}
-                  >
-                    <div style={{ flex: '1 1 300px' }}>
-                      <img src={service.image} alt={service.title} style={{ width: '100%', height: '220px', objectFit: 'cover', borderRadius: '16px' }} />
-                    </div>
-                    <div style={{ flex: '1 1 300px' }}>
-                      <h3 style={{ fontSize: '22px', color: 'var(--primary-navy)', fontWeight: '800', marginBottom: '12px' }}>{service.title}</h3>
-                      <p style={{ color: '#475569', fontSize: '15px', lineHeight: '1.7', margin: 0 }}>{service.desc}</p>
-                    </div>
-                  </motion.div>
+              {/* Slider Dots */}
+              <div style={{ position: 'absolute', top: '24px', right: '24px', display: 'flex', gap: '8px', zIndex: 10 }}>
+                {teamMembers.map((_, idx) => (
+                  <div 
+                    key={idx}
+                    style={{ width: idx === currentSlide ? '24px' : '8px', height: '8px', borderRadius: '4px', background: idx === currentSlide ? 'var(--accent-yellow)' : 'rgba(255,255,255,0.5)', transition: 'all 0.3s' }}
+                  />
                 ))}
               </div>
-            </motion.section>
+            </div>
 
-            {/* Why We Are Here */}
-            <motion.section variants={fadeUpVariant} style={{ background: 'var(--primary-navy)', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', color: 'white' }}>
-              <h2 style={{ fontSize: '28px', color: 'var(--accent-yellow)', fontWeight: '800', marginBottom: '16px' }}>Why We Lead the Industry</h2>
-              <p style={{ fontSize: '16px', lineHeight: '1.8', opacity: 0.9, marginBottom: '16px' }}>
-                With over 16+ years of rigorous experience and more than 1,200 successful projects under our belt, Aditya Solar Solutions stands as a beacon of trust and engineering excellence in Andhra Pradesh. We don't just install panels; we build sustainable energy ecosystems tailored to the unique demands of each client.
-              </p>
-              <p style={{ fontSize: '16px', lineHeight: '1.8', opacity: 0.9 }}>
-                Our position in the market is driven by our unwavering commitment to using only Tier-1 components, delivering flawless professional installations, and offering long-term support that ensures our customers reap the maximum financial and environmental benefits for decades.
-              </p>
-            </motion.section>
-
-            {/* Core Values */}
-            <motion.section variants={fadeUpVariant} style={{ background: 'white', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)', border: '1px solid #f1f5f9' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '32px' }}>
-                <div style={{ background: '#e0e7ff', padding: '12px', borderRadius: '12px' }}><Heart size={28} color="#4f46e5"/></div>
-                <h2 style={{ fontSize: '28px', color: 'var(--primary-navy)', fontWeight: '800', margin: 0 }}>Our Core Values</h2>
-              </div>
-              
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '24px' }}>
-                <div style={{ padding: '20px', background: '#f8fafc', borderRadius: '16px' }}>
-                  <ShieldCheck size={24} color="var(--primary-navy)" style={{ marginBottom: '12px' }} />
-                  <h3 style={{ fontSize: '18px', color: 'var(--primary-navy)', fontWeight: '700', marginBottom: '8px' }}>Integrity</h3>
-                  <p style={{ color: '#64748b', fontSize: '14px', lineHeight: '1.5' }}>Transparent pricing, honest assessments, and no hidden surprises.</p>
-                </div>
-                <div style={{ padding: '20px', background: '#f8fafc', borderRadius: '16px' }}>
-                  <Settings size={24} color="var(--primary-navy)" style={{ marginBottom: '12px' }} />
-                  <h3 style={{ fontSize: '18px', color: 'var(--primary-navy)', fontWeight: '700', marginBottom: '8px' }}>Excellence</h3>
-                  <p style={{ color: '#64748b', fontSize: '14px', lineHeight: '1.5' }}>Flawless execution using the best materials available in the market.</p>
-                </div>
-                <div style={{ padding: '20px', background: '#f8fafc', borderRadius: '16px' }}>
-                  <Users size={24} color="var(--primary-navy)" style={{ marginBottom: '12px' }} />
-                  <h3 style={{ fontSize: '18px', color: 'var(--primary-navy)', fontWeight: '700', marginBottom: '8px' }}>Customer First</h3>
-                  <p style={{ color: '#64748b', fontSize: '14px', lineHeight: '1.5' }}>Long-term support and relationships that extend far beyond installation.</p>
-                </div>
-                <div style={{ padding: '20px', background: '#f8fafc', borderRadius: '16px' }}>
-                  <Lightbulb size={24} color="var(--primary-navy)" style={{ marginBottom: '12px' }} />
-                  <h3 style={{ fontSize: '18px', color: 'var(--primary-navy)', fontWeight: '700', marginBottom: '8px' }}>Innovation</h3>
-                  <p style={{ color: '#64748b', fontSize: '14px', lineHeight: '1.5' }}>Constantly adapting to new technologies to maximize efficiency.</p>
-                </div>
-              </div>
-            </motion.section>
-
-          </motion.div>
-
-          {/* Sidebar Column */}
-          <motion.div variants={staggerContainer} initial="hidden" animate="visible" style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
-            
-            {/* Mission */}
-            <motion.div variants={fadeUpVariant} style={{ background: 'linear-gradient(135deg, var(--primary-navy), #1e3a8a)', padding: '40px', borderRadius: '24px', color: 'white', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '150px', height: '150px', background: 'rgba(255,255,255,0.05)', borderRadius: '50%' }}></div>
-              <Target size={36} color="var(--accent-yellow)" style={{ marginBottom: '20px' }} />
-              <h2 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '16px' }}>Our Mission</h2>
-              <p style={{ fontSize: '15px', lineHeight: '1.7', opacity: 0.9 }}>
-                To accelerate the adoption of solar energy by providing highly efficient, accessible, and customized solar solutions. We aim to empower households and businesses to achieve energy independence while significantly reducing their carbon footprint and energy expenditures.
-              </p>
-            </motion.div>
-
-            {/* Vision */}
-            <motion.div variants={fadeUpVariant} style={{ background: 'white', padding: '40px', borderRadius: '24px', border: '1px solid #f1f5f9', boxShadow: '0 10px 30px rgba(0,0,0,0.03)' }}>
-              <Eye size={36} color="var(--accent-green)" style={{ marginBottom: '20px' }} />
-              <h2 style={{ fontSize: '24px', color: 'var(--primary-navy)', fontWeight: '800', marginBottom: '16px' }}>Our Vision</h2>
-              <p style={{ color: '#475569', fontSize: '15px', lineHeight: '1.7' }}>
-                To be the most trusted and technically proficient renewable energy partner in India, transforming the energy landscape by making clean, sustainable power the standard for generations to come.
-              </p>
-            </motion.div>
-
-          </motion.div>
+          </div>
 
         </div>
       </div>
