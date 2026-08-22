@@ -976,13 +976,13 @@ function App() {
                 OUR PORTFOLIO
               </div>
               <h2 className="h2-section" style={{ fontSize: '42px', fontWeight: '800', letterSpacing: '-0.5px' }}>
-                Solar Products for <span style={{ background: 'linear-gradient(90deg, #16a34a, #84cc16)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Every Need</span>
+                Solar Products for <span style={{ color: 'var(--accent-yellow, #F5B82E)' }}>Every Need</span>
               </h2>
 
             </motion.div>
 
             <div className="bento-grid">
-              {solutionsData.map((sol, i) => (
+              {solutionsData.filter(sol => sol.id !== 'pm-surya-ghar').map((sol, i) => (
                 <motion.div 
                   key={sol.id} 
                   className={`bento-card ${i < 2 ? 'bento-large' : 'bento-small'}`}
