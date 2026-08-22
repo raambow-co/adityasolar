@@ -12,6 +12,7 @@ import SolutionPage from './SolutionPage';
 import AboutUsPage from './AboutUsPage';
 import SolarCalculator from './SolarCalculator';
 import Testimonials from './Testimonials';
+import SplashScreen from './SplashScreen';
 
 const InstagramIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
@@ -561,6 +562,7 @@ const StatModal = ({ statId, onClose }) => {
 };
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -569,11 +571,12 @@ function App() {
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
 
   useEffect(() => {
+    if (showSplash) return;
     const interval = setInterval(() => {
       setCurrentProductIndex((prev) => (prev + 1) % solutionsData.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [showSplash]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -624,6 +627,8 @@ function App() {
 
   return (
     <>
+      {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
+      
       {/* 1. NAVBAR */}
       <header className={`navbar-new ${isScrolled ? 'scrolled' : ''}`}>
         <div className="container nav-container" style={{ padding: '0' }}>
