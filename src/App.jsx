@@ -562,6 +562,12 @@ const StatModal = ({ statId, onClose }) => {
 };
 
 const BrochureModal = ({ onClose }) => {
+  const handleDownload = (e) => {
+    e.preventDefault();
+    window.open('/assets/aditya_solar_brochure.pdf', '_blank');
+    onClose();
+  };
+
   return (
     <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.8)', zIndex: 10000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', backdropFilter: 'blur(5px)' }} onClick={onClose}>
       <motion.div 
@@ -578,7 +584,7 @@ const BrochureModal = ({ onClose }) => {
           <p style={{ color: '#475569', fontSize: '15px' }}>Enter your details below to get our complete product catalog.</p>
         </div>
 
-        <form className="enquiry-form" onSubmit={(e) => { e.preventDefault(); alert('Brochure download started!'); onClose(); }} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <form className="enquiry-form" onSubmit={handleDownload} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div className="form-group" style={{ marginBottom: 0 }}>
             <label style={{ fontSize: '13px', fontWeight: '600', color: '#64748b', marginBottom: '6px' }}>Full Name</label>
             <input type="text" placeholder="Your Name" required style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '15px' }} />
@@ -1264,14 +1270,7 @@ function App() {
                     </div>
                     <div className="form-group">
                       <label>How did you hear about us?</label>
-                      <select defaultValue="" className="service-select">
-                        <option value="" disabled>Select referral source...</option>
-                        <option value="social-media">Social Media</option>
-                        <option value="google">Google Search</option>
-                        <option value="friend">Friend/Family</option>
-                        <option value="advertisement">Advertisement</option>
-                        <option value="other">Other</option>
-                      </select>
+                      <input type="text" placeholder="E.g., Google, Friend's Name, Social Media" required />
                     </div>
                   </div>
                   <div className="form-group">
