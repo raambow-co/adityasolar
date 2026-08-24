@@ -561,6 +561,45 @@ const StatModal = ({ statId, onClose }) => {
   );
 };
 
+const BrochureModal = ({ onClose }) => {
+  return (
+    <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.8)', zIndex: 10000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', backdropFilter: 'blur(5px)' }} onClick={onClose}>
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+        onClick={(e) => e.stopPropagation()}
+        style={{ background: 'white', borderRadius: '24px', padding: '40px', maxWidth: '450px', width: '100%', position: 'relative', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
+      >
+        <button onClick={onClose} style={{ position: 'absolute', top: '20px', right: '20px', background: '#f1f5f9', color: 'var(--primary-navy)', border: 'none', width: '36px', height: '36px', borderRadius: '50%', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', paddingBottom: '4px', transition: 'background 0.2s' }}>&times;</button>
+        
+        <div style={{ marginBottom: '24px', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '28px', color: 'var(--primary-navy)', fontWeight: '800', marginBottom: '8px' }}>Download Brochure</h2>
+          <p style={{ color: '#475569', fontSize: '15px' }}>Enter your details below to get our complete product catalog.</p>
+        </div>
+
+        <form className="enquiry-form" onSubmit={(e) => { e.preventDefault(); alert('Brochure download started!'); onClose(); }} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div className="form-group" style={{ marginBottom: 0 }}>
+            <label style={{ fontSize: '13px', fontWeight: '600', color: '#64748b', marginBottom: '6px' }}>Full Name</label>
+            <input type="text" placeholder="Your Name" required style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '15px' }} />
+          </div>
+          <div className="form-group" style={{ marginBottom: 0 }}>
+            <label style={{ fontSize: '13px', fontWeight: '600', color: '#64748b', marginBottom: '6px' }}>Phone Number</label>
+            <input type="tel" placeholder="+91 94936 85963" required style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '15px' }} />
+          </div>
+          <div className="form-group" style={{ marginBottom: 0 }}>
+            <label style={{ fontSize: '13px', fontWeight: '600', color: '#64748b', marginBottom: '6px' }}>Email Address</label>
+            <input type="email" placeholder="youremail@example.com" required style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '15px' }} />
+          </div>
+          <button type="submit" className="btn btn-yellow submit-btn" style={{ marginTop: '12px', width: '100%', justifyContent: 'center', borderRadius: '12px', padding: '14px' }}>
+            Get Brochure <Send size={18} />
+          </button>
+        </form>
+      </motion.div>
+    </div>
+  );
+};
+
 function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -569,6 +608,7 @@ function App() {
   const [activePage, setActivePage] = useState('home');
   const [activeStatModal, setActiveStatModal] = useState(null);
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
+  const [isBrochureModalOpen, setIsBrochureModalOpen] = useState(false);
 
   useEffect(() => {
     if (showSplash) return;
@@ -737,6 +777,10 @@ function App() {
         {activeStatModal && <StatModal statId={activeStatModal} onClose={() => setActiveStatModal(null)} />}
       </AnimatePresence>
 
+      <AnimatePresence>
+        {isBrochureModalOpen && <BrochureModal onClose={() => setIsBrochureModalOpen(false)} />}
+      </AnimatePresence>
+
       {activePage !== 'home' ? (
         activePage.startsWith('solar-') 
           ? <SolutionPage solution={solutionsData.find(s => s.id === activePage)} onBack={() => {
@@ -787,7 +831,7 @@ function App() {
               </motion.div>
               
               <motion.div className="hero-actions" variants={fadeUpVariant}>
-                <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '16px 32px', fontSize: '16px', fontWeight: '800', background: 'white', color: 'var(--primary-navy)', border: 'none', borderRadius: '100px', cursor: 'pointer', textDecoration: 'none' }}>
+                <a href="#" onClick={(e) => { e.preventDefault(); setIsBrochureModalOpen(true); }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '16px 32px', fontSize: '16px', fontWeight: '800', background: 'white', color: 'var(--primary-navy)', border: 'none', borderRadius: '100px', cursor: 'pointer', textDecoration: 'none' }}>
                   Download Brochure
                 </a>
               </motion.div>
@@ -1210,6 +1254,23 @@ function App() {
                         <option value="lights">Solar Lights</option>
                         <option value="heater">Solar Water Heater</option>
                         <option value="cleaning">Solar Cleaning</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label>Location</label>
+                      <input type="text" placeholder="Your City/Area" required />
+                    </div>
+                    <div className="form-group">
+                      <label>How did you hear about us?</label>
+                      <select defaultValue="" className="service-select">
+                        <option value="" disabled>Select referral source...</option>
+                        <option value="social-media">Social Media</option>
+                        <option value="google">Google Search</option>
+                        <option value="friend">Friend/Family</option>
+                        <option value="advertisement">Advertisement</option>
+                        <option value="other">Other</option>
                       </select>
                     </div>
                   </div>
