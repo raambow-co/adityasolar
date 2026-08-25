@@ -849,8 +849,8 @@ function App() {
               </motion.div>
               
               <motion.h1 className="hero-heading" variants={fadeUpVariant}>
-                Best Solar <br/>
-                <span>Appliances</span>
+                <div style={{ whiteSpace: 'nowrap' }}>Power your future.</div>
+                <span>Switch to solar</span>
               </motion.h1>
               
               <motion.div className="hero-checks" variants={fadeUpVariant}>

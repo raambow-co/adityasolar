@@ -1590,7 +1590,7 @@ a.contact-value:hover {
 }
 
 .hero-heading {
-  font-size: clamp(48px, 6vw, 72px);
+  font-size: clamp(32px, 5.5vw, 72px);
   color: white;
   font-weight: 700;
   line-height: 1.1;
