@@ -561,6 +561,37 @@ const StatModal = ({ statId, onClose }) => {
   );
 };
 
+const TrustedPartners = () => {
+  const partners = [
+    '/assets/partners/waaree.png',
+    '/assets/partners/vikram.png',
+    '/assets/partners/renew.jpg',
+    '/assets/partners/partner1.jpg',
+    '/assets/partners/partner2.jpg'
+  ];
+
+  return (
+    <section className="partners-section">
+      <div className="container">
+        <div className="partners-header">
+          <div className="line line-left"></div>
+          <h2>TRUSTED BRAND PARTNERS</h2>
+          <div className="line line-right"></div>
+        </div>
+      </div>
+      <div style={{ display: 'flex', overflow: 'hidden' }}>
+        <div className="marquee-container">
+          {[...partners, ...partners, ...partners, ...partners].map((logo, index) => (
+            <div key={index} className="partner-card">
+              <img src={logo} alt={`Partner ${index + 1}`} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const BrochureModal = ({ onClose }) => {
   const handleDownload = (e) => {
     e.preventDefault();
@@ -909,6 +940,9 @@ function App() {
           </div>
         </section>
 
+        {/* TRUSTED BRAND PARTNERS */}
+        <TrustedPartners />
+
         {/* 5. INTRODUCTION SECTION */}
         <section id="about" className="section" style={{ backgroundColor: '#f8fafc', position: 'relative', overflow: 'hidden' }}>
           {/* Decorative Background Elements */}
@@ -964,7 +998,7 @@ function App() {
               >
                 <motion.div style={{ marginBottom: '16px' }} variants={fadeUpVariant}>
                   <span style={{ display: 'inline-block', color: 'var(--accent-yellow)', fontSize: '13px', fontWeight: '800', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
-                    ABOUT ADITYA SOLAR SOLUTIONS
+                    ABOUT US
                   </span>
                 </motion.div>
                 
