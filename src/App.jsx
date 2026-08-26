@@ -599,8 +599,30 @@ const TrustedPartners = () => {
 };
 
 const BrochureModal = ({ onClose }) => {
-  const handleDownload = (e) => {
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const handleDownload = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.target);
+    const data = {
+      formType: 'brochure',
+      name: formData.get('name'),
+      phone: formData.get('phone'),
+      email: formData.get('email')
+    };
+
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+    } catch (err) {
+      console.error('Failed to submit form', err);
+    }
+
+    setIsSubmitting(false);
     window.open('/assets/aditya_solar_brochure.pdf', '_blank');
     onClose();
   };
@@ -624,18 +646,18 @@ const BrochureModal = ({ onClose }) => {
         <form className="enquiry-form" onSubmit={handleDownload} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div className="form-group" style={{ marginBottom: 0 }}>
             <label style={{ fontSize: '13px', fontWeight: '600', color: '#64748b', marginBottom: '6px' }}>Full Name</label>
-            <input type="text" placeholder="Your Name" required style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '15px' }} />
+            <input type="text" name="name" placeholder="Your Name" required style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '15px' }} />
           </div>
           <div className="form-group" style={{ marginBottom: 0 }}>
             <label style={{ fontSize: '13px', fontWeight: '600', color: '#64748b', marginBottom: '6px' }}>Phone Number</label>
-            <input type="tel" placeholder="+91 94936 85963" required style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '15px' }} />
+            <input type="tel" name="phone" placeholder="+91 94936 85963" required style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '15px' }} />
           </div>
           <div className="form-group" style={{ marginBottom: 0 }}>
             <label style={{ fontSize: '13px', fontWeight: '600', color: '#64748b', marginBottom: '6px' }}>Email Address</label>
-            <input type="email" placeholder="youremail@example.com" required style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '15px' }} />
+            <input type="email" name="email" placeholder="youremail@example.com" required style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '15px' }} />
           </div>
-          <button type="submit" className="btn btn-yellow submit-btn" style={{ marginTop: '12px', width: '100%', justifyContent: 'center', borderRadius: '12px', padding: '14px' }}>
-            Get Brochure <Send size={18} />
+          <button type="submit" disabled={isSubmitting} className="btn btn-yellow submit-btn" style={{ marginTop: '12px', width: '100%', justifyContent: 'center', borderRadius: '12px', padding: '14px', opacity: isSubmitting ? 0.7 : 1 }}>
+            {isSubmitting ? 'Sending...' : 'Get Brochure'} {!isSubmitting && <Send size={18} />}
           </button>
         </form>
       </motion.div>
@@ -652,6 +674,39 @@ function App() {
   const [activeStatModal, setActiveStatModal] = useState(null);
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
   const [isBrochureModalOpen, setIsBrochureModalOpen] = useState(false);
+  const [isSubmittingEnquiry, setIsSubmittingEnquiry] = useState(false);
+
+  const handleEnquirySubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmittingEnquiry(true);
+    
+    const formData = new FormData(e.target);
+    const data = {
+      formType: 'enquiry',
+      name: formData.get('name'),
+      phone: formData.get('phone'),
+      email: formData.get('email'),
+      service: formData.get('service'),
+      location: formData.get('location'),
+      source: formData.get('source'),
+      message: formData.get('message')
+    };
+
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      alert("Thank you! Your enquiry has been sent successfully.");
+      e.target.reset();
+    } catch (err) {
+      console.error('Failed to submit form', err);
+      alert("Oops! Something went wrong. Please try again later.");
+    }
+
+    setIsSubmittingEnquiry(false);
+  };
 
   useEffect(() => {
     if (showSplash) return;
@@ -1282,26 +1337,26 @@ function App() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <form className="enquiry-form" onSubmit={(e) => e.preventDefault()}>
+                <form className="enquiry-form" onSubmit={handleEnquirySubmit}>
                   <h3 style={{ marginBottom: '20px', color: 'var(--primary-navy)', fontSize: '24px' }}>Send an Enquiry</h3>
                   <div className="form-row">
                     <div className="form-group">
                       <label>Full Name</label>
-                      <input type="text" placeholder="Your Name" required />
+                      <input type="text" name="name" placeholder="Your Name" required />
                     </div>
                     <div className="form-group">
                       <label>Phone Number</label>
-                      <input type="tel" placeholder="+91 94936 85963" required />
+                      <input type="tel" name="phone" placeholder="+91 94936 85963" required />
                     </div>
                   </div>
                   <div className="form-row">
                     <div className="form-group">
                       <label>Email Address</label>
-                      <input type="email" placeholder="adityasolarsolution.info@gmail.com" required />
+                      <input type="email" name="email" placeholder="adityasolarsolution.info@gmail.com" required />
                     </div>
                     <div className="form-group">
                       <label>Service of Interest</label>
-                      <select required defaultValue="" className="service-select">
+                      <select name="service" required defaultValue="" className="service-select">
                         <option value="" disabled>Select a service...</option>
                         <option value="residential">Solar Residential</option>
                         <option value="commercial">Solar Commercial</option>
@@ -1314,19 +1369,19 @@ function App() {
                   <div className="form-row">
                     <div className="form-group">
                       <label>Location</label>
-                      <input type="text" placeholder="Your City/Area" required />
+                      <input type="text" name="location" placeholder="Your City/Area" required />
                     </div>
                     <div className="form-group">
                       <label>How did you hear about us?</label>
-                      <input type="text" placeholder="E.g., Google, Friend's Name, Social Media" required />
+                      <input type="text" name="source" placeholder="E.g., Google, Friend's Name, Social Media" required />
                     </div>
                   </div>
                   <div className="form-group">
                     <label>Message</label>
-                    <textarea rows="4" placeholder="How can we help you with solar?" required></textarea>
+                    <textarea name="message" rows="4" placeholder="How can we help you with solar?" required></textarea>
                   </div>
-                  <button type="submit" className="btn btn-yellow submit-btn" style={{ display: 'flex', gap: '8px' }}>
-                    Submit Enquiry <Send size={18} />
+                  <button type="submit" disabled={isSubmittingEnquiry} className="btn btn-yellow submit-btn" style={{ display: 'flex', gap: '8px', opacity: isSubmittingEnquiry ? 0.7 : 1 }}>
+                    {isSubmittingEnquiry ? 'Sending...' : 'Submit Enquiry'} {!isSubmittingEnquiry && <Send size={18} />}
                   </button>
                 </form>
               </motion.div>
