@@ -877,6 +877,9 @@ function App() {
                 <a href="#" onClick={(e) => { e.preventDefault(); setIsBrochureModalOpen(true); }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '16px 32px', fontSize: '16px', fontWeight: '800', background: 'white', color: 'var(--primary-navy)', border: 'none', borderRadius: '100px', cursor: 'pointer', textDecoration: 'none' }}>
                   Download Brochure
                 </a>
+                <a href="https://www.instagram.com/adityasolarsolutions.info/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '16px 32px', fontSize: '16px', fontWeight: '800', background: 'white', color: 'var(--primary-navy)', border: 'none', borderRadius: '100px', cursor: 'pointer', textDecoration: 'none' }}>
+                  <InstagramIcon /> Insta
+                </a>
               </motion.div>
             </motion.div>
             
@@ -1403,7 +1406,7 @@ function App() {
                 Empowering Andhra Pradesh with premium, tailored solar solutions. Reduce your bills and transition to clean, reliable energy independence today.
               </p>
               <div className="footer-socials">
-                <a href="#" className="social-icon-new" style={{ color: '#E1306C', borderColor: '#E1306C' }}><InstagramIcon /></a>
+                <a href="https://www.instagram.com/adityasolarsolutions.info/" target="_blank" rel="noopener noreferrer" className="social-icon-new" style={{ color: '#E1306C', borderColor: '#E1306C' }}><InstagramIcon /></a>
                 <a href="#" className="social-icon-new" style={{ color: '#1877F2', borderColor: '#1877F2' }}><FacebookIcon /></a>
                 <a href="#" className="social-icon-new" style={{ color: '#0A66C2', borderColor: '#0A66C2' }}><LinkedinIcon /></a>
                 <a href="#" className="social-icon-new" style={{ color: '#FF0000', borderColor: '#FF0000' }}><YoutubeIcon /></a>
