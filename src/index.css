@@ -1529,7 +1529,7 @@ a.contact-value:hover {
 .hero-section-new {
   position: relative;
   min-height: 100vh;
-  background-image: url('/assets/solar_hero.png');
+  background-image: url('/assets/solar_hero.jpg');
   background-size: cover;
   background-position: center;
   display: flex;

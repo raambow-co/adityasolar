@@ -384,7 +384,7 @@ export const solutionsData = [
     title: 'PM Surya Ghar',
     subtitle: 'Free Electricity Scheme by Govt of India',
     fullDescription: 'PM Surya Ghar Muft Bijli Yojana is a groundbreaking government initiative designed to provide up to 300 units of free electricity every month to 1 crore households across India. By installing a solar rooftop system, you not only eliminate your monthly electricity bills but also contribute to a greener, more sustainable future.\n\nAs a Govt Approved Vendor, Aditya Solar Solutions provides end-to-end support for this scheme. We handle everything from the initial application and subsidy processing to the expert installation of high-quality solar panels and final net-metering setup. Take advantage of significant government subsidies and secure your energy independence today.',
-    image: '/assets/hero-pm.png',
+    image: '/assets/hero-pm.jpg',
     features: [
       { title: 'Free Electricity', desc: 'Up to 300 units free every month.' },
       { title: 'Govt Subsidy', desc: 'Massive financial support for installation.' },
@@ -408,7 +408,7 @@ export const solutionsData = [
     title: 'Solar Water Heater',
     subtitle: 'Cost-effective thermal solutions for instant hot water.',
     fullDescription: 'Reduce your electricity bills significantly with our advanced solar water heating systems. Using highly efficient Evacuated Tube Collector (ETC) or Flat Plate Collector (FPC) technology, they rapidly absorb solar radiation to provide hot water for your entire household or commercial facility, year-round.\n\nWater heating accounts for a massive portion of monthly electricity consumption. By switching to our solar thermal solutions, you can cut your heating costs by up to 80%. Our systems are built with specialized anti-corrosion inner tanks, ensuring they withstand hard water scaling over the years. With minimal maintenance required and a rapid return on investment (usually within 2-3 years), our solar heaters are the smartest upgrade for modern homes, hospitals, and hotels.',
-    image: '/assets/solar-water-heater.png',
+    image: '/assets/solar-water-heater.jpg',
     features: [
       { title: 'Energy Saving', desc: 'Cuts water heating costs by up to 80%.' },
       { title: 'Fast Heating', desc: 'Advanced tubes retain heat longer.' },
@@ -1210,7 +1210,7 @@ function App() {
                 style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', background: '#ffffff', display: 'flex', flexDirection: 'column' }}
               >
                 <img 
-                  src="/assets/pm-surya-ghar.png" 
+                  src="/assets/pm-surya-ghar.jpg" 
                   alt="PM Surya Ghar Rooftop Solar" 
                   style={{ width: '100%', height: '100%', objectFit: 'contain', minHeight: '400px' }} 
                   loading="lazy"
