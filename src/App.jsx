@@ -536,7 +536,7 @@ const StatModal = ({ statId, onClose }) => {
         onClick={(e) => e.stopPropagation()}
         style={{ background: 'white', borderRadius: '24px', padding: '40px', maxWidth: '700px', width: '100%', maxHeight: '90vh', overflowY: 'auto', position: 'relative' }}
       >
-        <button onClick={onClose} style={{ position: 'absolute', top: '20px', right: '20px', background: 'var(--primary-navy)', color: 'white', border: 'none', width: '40px', height: '40px', borderRadius: '50%', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', paddingBottom: '4px' }}>&times;</button>
+        <button aria-label="Close" onClick={onClose} style={{ position: 'absolute', top: '20px', right: '20px', background: 'var(--primary-navy)', color: 'white', border: 'none', width: '40px', height: '40px', borderRadius: '50%', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', paddingBottom: '4px' }}>&times;</button>
         
         <div style={{ marginBottom: '32px' }}>
           <span style={{ color: 'var(--accent-yellow)', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '14px' }}>{content.subtitle}</span>
@@ -636,7 +636,7 @@ const BrochureModal = ({ onClose }) => {
         onClick={(e) => e.stopPropagation()}
         style={{ background: 'white', borderRadius: '24px', padding: '40px', maxWidth: '450px', width: '100%', position: 'relative', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
       >
-        <button onClick={onClose} style={{ position: 'absolute', top: '20px', right: '20px', background: '#f1f5f9', color: 'var(--primary-navy)', border: 'none', width: '36px', height: '36px', borderRadius: '50%', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', paddingBottom: '4px', transition: 'background 0.2s' }}>&times;</button>
+        <button aria-label="Close" onClick={onClose} style={{ position: 'absolute', top: '20px', right: '20px', background: '#f1f5f9', color: 'var(--primary-navy)', border: 'none', width: '36px', height: '36px', borderRadius: '50%', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', paddingBottom: '4px', transition: 'background 0.2s' }}>&times;</button>
         
         <div style={{ marginBottom: '24px', textAlign: 'center' }}>
           <h2 style={{ fontSize: '28px', color: 'var(--primary-navy)', fontWeight: '800', marginBottom: '8px' }}>Download Brochure</h2>
@@ -645,16 +645,16 @@ const BrochureModal = ({ onClose }) => {
 
         <form className="enquiry-form" onSubmit={handleDownload} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div className="form-group" style={{ marginBottom: 0 }}>
-            <label style={{ fontSize: '13px', fontWeight: '600', color: '#64748b', marginBottom: '6px' }}>Full Name</label>
-            <input type="text" name="name" placeholder="Your Name" required style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '15px' }} />
+            <label htmlFor="brochure-name" style={{ fontSize: '13px', fontWeight: '600', color: '#64748b', marginBottom: '6px' }}>Full Name</label>
+            <input id="brochure-name" type="text" name="name" placeholder="Your Name" required style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '15px' }} />
           </div>
           <div className="form-group" style={{ marginBottom: 0 }}>
-            <label style={{ fontSize: '13px', fontWeight: '600', color: '#64748b', marginBottom: '6px' }}>Phone Number</label>
-            <input type="tel" name="phone" placeholder="+91 94936 85963" required style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '15px' }} />
+            <label htmlFor="brochure-phone" style={{ fontSize: '13px', fontWeight: '600', color: '#64748b', marginBottom: '6px' }}>Phone Number</label>
+            <input id="brochure-phone" type="tel" name="phone" placeholder="+91 94936 85963" required style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '15px' }} />
           </div>
           <div className="form-group" style={{ marginBottom: 0 }}>
-            <label style={{ fontSize: '13px', fontWeight: '600', color: '#64748b', marginBottom: '6px' }}>Email Address</label>
-            <input type="email" name="email" placeholder="youremail@example.com" required style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '15px' }} />
+            <label htmlFor="brochure-email" style={{ fontSize: '13px', fontWeight: '600', color: '#64748b', marginBottom: '6px' }}>Email Address</label>
+            <input id="brochure-email" type="email" name="email" placeholder="youremail@example.com" required style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '15px' }} />
           </div>
           <button type="submit" disabled={isSubmitting} className="btn btn-yellow submit-btn" style={{ marginTop: '12px', width: '100%', justifyContent: 'center', borderRadius: '12px', padding: '14px', opacity: isSubmitting ? 0.7 : 1 }}>
             {isSubmitting ? 'Sending...' : 'Get Brochure'} {!isSubmitting && <Send size={18} />}
@@ -933,10 +933,10 @@ function App() {
                 <a href="#" onClick={(e) => { e.preventDefault(); setIsBrochureModalOpen(true); }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '16px 32px', fontSize: '16px', fontWeight: '800', background: 'white', color: 'var(--primary-navy)', border: 'none', borderRadius: '100px', cursor: 'pointer', textDecoration: 'none' }}>
                   Download Brochure
                 </a>
-                <a href="https://www.instagram.com/adityasolarsolutions.info/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', background: 'var(--accent-yellow)', color: 'var(--primary-navy)', border: 'none', borderRadius: '50%', cursor: 'pointer', textDecoration: 'none' }}>
+                <a href="https://www.instagram.com/adityasolarsolutions.info/" aria-label="Instagram" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', background: 'var(--accent-yellow)', color: 'var(--primary-navy)', border: 'none', borderRadius: '50%', cursor: 'pointer', textDecoration: 'none' }}>
                   <InstagramIcon />
                 </a>
-                <a href="https://www.facebook.com/profile.php?id=61576413847725" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', background: 'var(--accent-yellow)', color: 'var(--primary-navy)', border: 'none', borderRadius: '50%', cursor: 'pointer', textDecoration: 'none' }}>
+                <a href="https://www.facebook.com/profile.php?id=61576413847725" aria-label="Facebook" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', background: 'var(--accent-yellow)', color: 'var(--primary-navy)', border: 'none', borderRadius: '50%', cursor: 'pointer', textDecoration: 'none' }}>
                   <FacebookIcon />
                 </a>
               </motion.div>
@@ -1342,22 +1342,22 @@ function App() {
                   <h3 style={{ marginBottom: '20px', color: 'var(--primary-navy)', fontSize: '24px' }}>Send an Enquiry</h3>
                   <div className="form-row">
                     <div className="form-group">
-                      <label>Full Name</label>
-                      <input type="text" name="name" placeholder="Your Name" required />
+                      <label htmlFor="enquiry-name">Full Name</label>
+                      <input id="enquiry-name" type="text" name="name" placeholder="Your Name" required />
                     </div>
                     <div className="form-group">
-                      <label>Phone Number</label>
-                      <input type="tel" name="phone" placeholder="+91 94936 85963" required />
+                      <label htmlFor="enquiry-phone">Phone Number</label>
+                      <input id="enquiry-phone" type="tel" name="phone" placeholder="+91 94936 85963" required />
                     </div>
                   </div>
                   <div className="form-row">
                     <div className="form-group">
-                      <label>Email Address</label>
-                      <input type="email" name="email" placeholder="adityasolarsolution.info@gmail.com" required />
+                      <label htmlFor="enquiry-email">Email Address</label>
+                      <input id="enquiry-email" type="email" name="email" placeholder="adityasolarsolution.info@gmail.com" required />
                     </div>
                     <div className="form-group">
-                      <label>Service of Interest</label>
-                      <select name="service" required defaultValue="" className="service-select">
+                      <label htmlFor="enquiry-service">Service of Interest</label>
+                      <select id="enquiry-service" name="service" required defaultValue="" className="service-select">
                         <option value="" disabled>Select a service...</option>
                         <option value="residential">Solar Residential</option>
                         <option value="commercial">Solar Commercial</option>
@@ -1369,17 +1369,17 @@ function App() {
                   </div>
                   <div className="form-row">
                     <div className="form-group">
-                      <label>Location</label>
-                      <input type="text" name="location" placeholder="Your City/Area" required />
+                      <label htmlFor="enquiry-location">Location</label>
+                      <input id="enquiry-location" type="text" name="location" placeholder="Your City/Area" required />
                     </div>
                     <div className="form-group">
-                      <label>How did you hear about us?</label>
-                      <input type="text" name="source" placeholder="E.g., Google, Friend's Name, Social Media" required />
+                      <label htmlFor="enquiry-source">How did you hear about us?</label>
+                      <input id="enquiry-source" type="text" name="source" placeholder="E.g., Google, Friend's Name, Social Media" required />
                     </div>
                   </div>
                   <div className="form-group">
-                    <label>Message</label>
-                    <textarea name="message" rows="4" placeholder="How can we help you with solar?" required></textarea>
+                    <label htmlFor="enquiry-message">Message</label>
+                    <textarea id="enquiry-message" name="message" rows="4" placeholder="How can we help you with solar?" required></textarea>
                   </div>
                   <button type="submit" disabled={isSubmittingEnquiry} className="btn btn-yellow submit-btn" style={{ display: 'flex', gap: '8px', opacity: isSubmittingEnquiry ? 0.7 : 1 }}>
                     {isSubmittingEnquiry ? 'Sending...' : 'Submit Enquiry'} {!isSubmittingEnquiry && <Send size={18} />}
@@ -1466,11 +1466,11 @@ function App() {
               <p className="footer-desc-new">
                 Empowering Andhra Pradesh with premium, tailored solar solutions. Reduce your bills and transition to clean, reliable energy independence today.
               </p>
-              <div className="footer-socials">
-                <a href="https://www.instagram.com/adityasolarsolutions.info/" target="_blank" rel="noopener noreferrer" className="social-icon-new" style={{ color: '#E1306C', borderColor: '#E1306C' }}><InstagramIcon /></a>
-                <a href="https://www.facebook.com/profile.php?id=61576413847725" target="_blank" rel="noopener noreferrer" className="social-icon-new" style={{ color: '#1877F2', borderColor: '#1877F2' }}><FacebookIcon /></a>
-                <a href="#" className="social-icon-new" style={{ color: '#0A66C2', borderColor: '#0A66C2' }}><LinkedinIcon /></a>
-                <a href="#" className="social-icon-new" style={{ color: '#FF0000', borderColor: '#FF0000' }}><YoutubeIcon /></a>
+              <div className="social-links-new">
+                <a href="https://www.instagram.com/adityasolarsolutions.info/" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="social-icon-new" style={{ color: '#E1306C', borderColor: '#E1306C' }}><InstagramIcon /></a>
+                <a href="https://www.facebook.com/profile.php?id=61576413847725" aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="social-icon-new" style={{ color: '#1877F2', borderColor: '#1877F2' }}><FacebookIcon /></a>
+                <a href="#" aria-label="LinkedIn" className="social-icon-new" style={{ color: '#0A66C2', borderColor: '#0A66C2' }}><LinkedinIcon /></a>
+                <a href="#" aria-label="YouTube" className="social-icon-new" style={{ color: '#FF0000', borderColor: '#FF0000' }}><YoutubeIcon /></a>
               </div>
             </div>
             
