@@ -155,7 +155,7 @@ const teamMembers = [
     name: 'M. Vikas Teja',
     role: 'MANAGING DIRECTOR',
     edu: 'B.Tech (EE)',
-    image: '/assets/team/md-aditya-solar.jpg',
+    image: '/assets/team/md-aditya-solar.webp',
     about: 'Vikas Teja M. is the Managing Director of Aditya Solar Solutions. With a strong background in Electrical Engineering, he leads the company with a focus on technically appropriate system design, safe electrical practices, and uncompromising quality in project execution.',
     stats: [
       { label: 'Education', value: 'B.Tech EE' },
@@ -168,7 +168,7 @@ const teamMembers = [
     name: 'M. Vaddikasulu',
     role: 'FOUNDER',
     edu: 'Founder',
-    image: '/assets/team/proprietor-aditya-solar.png',
+    image: '/assets/team/proprietor-aditya-solar.webp',
     about: 'M. Vaddikasulu is the foundation of Aditya Solar Solutions, bringing unparalleled wisdom and deep-rooted knowledge to the company. His commitment to renewable energy and sustainable practices has been the driving force behind the business. With over 18+ years of extensive experience in the solar industry, he has a profound practical knowledge of solar products, installation practices, system design, and field-level challenges.',
     stats: [
       { label: 'Years Experience', value: '18+' },
@@ -181,7 +181,7 @@ const teamMembers = [
     name: 'M. Kiran Sai',
     role: 'TECHNICAL MANAGER',
     edu: 'Technical Lead',
-    image: '/assets/team/kiran-sai.jpeg',
+    image: '/assets/team/kiran-sai.webp',
     about: 'M. Kiran Sai serves as the Technical Manager, ensuring that every installation meets the highest standards of safety and efficiency. He brings hands-on problem-solving skills and technical rigor to the operations team. He contributes 6+ years of hands-on solar industry experience. His practical field expertise in electrical works, testing, and commissioning plays a crucial role in the successful deployment of solar projects.',
     stats: [
       { label: 'Years Experience', value: '6+' },
@@ -384,7 +384,7 @@ export const solutionsData = [
     title: 'PM Surya Ghar',
     subtitle: 'Free Electricity Scheme by Govt of India',
     fullDescription: 'PM Surya Ghar Muft Bijli Yojana is a groundbreaking government initiative designed to provide up to 300 units of free electricity every month to 1 crore households across India. By installing a solar rooftop system, you not only eliminate your monthly electricity bills but also contribute to a greener, more sustainable future.\n\nAs a Govt Approved Vendor, Aditya Solar Solutions provides end-to-end support for this scheme. We handle everything from the initial application and subsidy processing to the expert installation of high-quality solar panels and final net-metering setup. Take advantage of significant government subsidies and secure your energy independence today.',
-    image: '/assets/hero-pm.jpg',
+    image: '/assets/hero-pm.webp',
     features: [
       { title: 'Free Electricity', desc: 'Up to 300 units free every month.' },
       { title: 'Govt Subsidy', desc: 'Massive financial support for installation.' },
@@ -396,7 +396,7 @@ export const solutionsData = [
     title: 'Solar Panels',
     subtitle: 'High-efficiency monocrystalline panels for residential & commercial use.',
     fullDescription: 'Our premium solar panels are designed to maximize energy production even in low-light conditions. Built with the latest Tier-1 monocrystalline technology, they offer superior efficiency, long-term durability, and an excellent return on your investment.\n\nWhether you are looking to drastically reduce your home electricity bills through the PM Surya Ghar Muft Bijli Yojana, or aiming to offset heavy commercial loads, our solar power plants are engineered for maximum yield. We handle everything from site inspection and structural mounting to grid synchronization and net-metering approval. Our panels come with an industry-leading 25-year performance warranty, ensuring decades of clean, reliable, and free electricity generation for your property.',
-    image: '/assets/solar-panels.jpeg',
+    image: '/assets/solar-panels.webp',
     features: [
       { title: 'High Efficiency', desc: 'Industry-leading conversion rates up to 22%.' },
       { title: 'Durability', desc: 'Built to withstand harsh weather conditions.' },
@@ -408,7 +408,7 @@ export const solutionsData = [
     title: 'Solar Water Heater',
     subtitle: 'Cost-effective thermal solutions for instant hot water.',
     fullDescription: 'Reduce your electricity bills significantly with our advanced solar water heating systems. Using highly efficient Evacuated Tube Collector (ETC) or Flat Plate Collector (FPC) technology, they rapidly absorb solar radiation to provide hot water for your entire household or commercial facility, year-round.\n\nWater heating accounts for a massive portion of monthly electricity consumption. By switching to our solar thermal solutions, you can cut your heating costs by up to 80%. Our systems are built with specialized anti-corrosion inner tanks, ensuring they withstand hard water scaling over the years. With minimal maintenance required and a rapid return on investment (usually within 2-3 years), our solar heaters are the smartest upgrade for modern homes, hospitals, and hotels.',
-    image: '/assets/solar-water-heater.jpg',
+    image: '/assets/solar-water-heater.webp',
     features: [
       { title: 'Energy Saving', desc: 'Cuts water heating costs by up to 80%.' },
       { title: 'Fast Heating', desc: 'Advanced tubes retain heat longer.' },
@@ -420,7 +420,7 @@ export const solutionsData = [
     title: 'Solar Lights',
     subtitle: 'Bright, autonomous lighting for streets & gardens.',
     fullDescription: 'Illuminate your pathways, gardens, and streets with zero electricity cost. Our premium solar lighting systems are entirely autonomous, requiring no underground trenching, complicated wiring, or grid connections. They feature high-capacity built-in lithium-ion batteries and smart ambient sensors that automatically turn the lights on at dusk and off at dawn.\n\nDesigned to withstand extreme weather conditions, our IP65-rated solar lights provide brilliant, long-lasting illumination through heavy rain and high heat. We offer a wide range of solutions, including integrated street lights for municipalities, decorative garden lamps, and powerful floodlights for security. By utilizing ultra-bright LED technology paired with intelligent energy management, our lights ensure your premises remain bright and secure all night long.',
-    image: '/assets/solar-lights.jpeg',
+    image: '/assets/solar-lights.webp',
     features: [
       { title: 'Auto On/Off', desc: 'Smart sensors detect ambient light levels.' },
       { title: 'Weatherproof', desc: 'IP65 rated for total water resistance.' },
@@ -432,7 +432,7 @@ export const solutionsData = [
     title: 'Solar Fencing',
     subtitle: 'Secure your perimeter with eco-friendly electric fencing.',
     fullDescription: 'Protect your agricultural land, remote farmhouses, or commercial property perimeters with our highly effective solar-powered electric fencing. It delivers a safe, non-lethal, but extremely strong deterrent shock to keep unauthorized intruders and wild animals away, without relying on the unreliable electrical grid.\n\nSecurity shouldn\'t stop when the power goes out. Our solar fencing systems run independently, utilizing a dedicated solar panel that continuously charges a heavy-duty battery backup. This guarantees uninterrupted 24/7 protection. The system is designed with intelligent zone monitoring and alarm triggers that instantly notify you of any breach attempts. Far more cost-effective and intimidating than traditional brick walls or barbed wire, our solar fencing is the ultimate perimeter defense solution.',
-    image: '/assets/solar-fencing.jpg',
+    image: '/assets/solar-fencing.webp',
     features: [
       { title: '24/7 Protection', desc: 'Battery backup ensures continuous security.' },
       { title: 'Non-Lethal', desc: 'Safe for humans and animals.' },
@@ -444,7 +444,7 @@ export const solutionsData = [
     title: 'Solar Cleaning',
     subtitle: 'Professional maintenance to maximize power output.',
     fullDescription: 'Dust, bird droppings, and environmental debris can drastically reduce your solar panel efficiency by up to 30%. Our professional solar cleaning service ensures your investment continues to operate at absolute peak performance.\n\nWe utilize specialized, ultra-soft non-abrasive brushes combined with purified, deionized water to safely remove grime without leaving micro-scratches or hard water stains on the delicate panel glass. Regular maintenance not only instantly boosts your daily energy generation, but also prevents long-term hot-spot damage to the solar cells. Whether it\'s a one-time deep clean or a scheduled automated maintenance plan, our expert technicians ensure your system runs exactly as it did on day one.',
-    image: '/assets/solar-cleaning.jpeg',
+    image: '/assets/solar-cleaning.webp',
     features: [
       { title: 'Yield Boost', desc: 'Instantly increases energy generation.' },
       { title: 'Safe Cleaning', desc: 'Prevents micro-scratches on panel glass.' },
@@ -563,17 +563,17 @@ const StatModal = ({ statId, onClose }) => {
 
 const TrustedPartners = () => {
   const partners = [
-    '/assets/partners/waaree.png',
-    '/assets/partners/vikram.png',
-    '/assets/partners/renew.jpg',
-    '/assets/partners/partner1.jpg',
-    '/assets/partners/partner2.jpg',
-    '/assets/partners/partner1.jpeg',
-    '/assets/partners/partner2.jpeg',
-    '/assets/partners/partner3.jpeg',
-    '/assets/partners/partner4.jpeg',
-    '/assets/partners/deye.png',
-    '/assets/partners/waacab.jpeg'
+    '/assets/partners/waaree.webp',
+    '/assets/partners/vikram.webp',
+    '/assets/partners/renew.webp',
+    '/assets/partners/partner1.webp',
+    '/assets/partners/partner2.webp',
+    '/assets/partners/partner1.webp',
+    '/assets/partners/partner2.webp',
+    '/assets/partners/partner3.webp',
+    '/assets/partners/partner4.webp',
+    '/assets/partners/deye.webp',
+    '/assets/partners/waacab.webp'
   ];
 
   return (
@@ -771,7 +771,7 @@ function App() {
       <header className={`navbar-new ${isScrolled ? 'scrolled' : ''}`}>
         <div className="container nav-container" style={{ padding: '0' }}>
           <a href="#" className="nav-logo-link" onClick={() => setActivePage('home')}>
-            <img src="/assets/adityasolar.jpg" alt="Aditya Solar Logo" style={{ height: '48px', objectFit: 'contain' }} />
+            <img src="/assets/adityasolar.webp" alt="Aditya Solar Logo" style={{ height: '48px', objectFit: 'contain' }} />
           </a>
           
           <nav className="nav-links">
@@ -1028,7 +1028,7 @@ function App() {
                 style={{ position: 'relative' }}
               >
                 <img 
-                  src="/assets/logoaboutus.png" 
+                  src="/assets/logoaboutus.webp" 
                   alt="Aditya Solar Solutions Logo" 
                   className="intro-image"
                   loading="lazy"
@@ -1211,7 +1211,7 @@ function App() {
                 style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', background: '#ffffff', display: 'flex', flexDirection: 'column' }}
               >
                 <img 
-                  src="/assets/pm-surya-ghar.jpg" 
+                  src="/assets/pm-surya-ghar.webp" 
                   alt="PM Surya Ghar Rooftop Solar" 
                   style={{ width: '100%', height: '100%', objectFit: 'contain', minHeight: '400px' }} 
                   loading="lazy"
@@ -1267,7 +1267,7 @@ function App() {
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
                 <div className="team-avatar-wrapper">
-                  <img src="/assets/team/md-aditya-solar.jpg" alt="M. Vikas Teja" loading="lazy" />
+                  <img src="/assets/team/md-aditya-solar.webp" alt="M. Vikas Teja" loading="lazy" />
                 </div>
                 <h3 className="team-name">M. Vikas Teja</h3>
                 <div className="team-designation">MANAGING DIRECTOR</div>
@@ -1283,7 +1283,7 @@ function App() {
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 <div className="team-avatar-wrapper">
-                  <img src="/assets/team/proprietor-aditya-solar.png" alt="M. Vaddikasulu" loading="lazy" />
+                  <img src="/assets/team/proprietor-aditya-solar.webp" alt="M. Vaddikasulu" loading="lazy" />
                 </div>
                 <h3 className="team-name">M. Vaddikasulu</h3>
                 <div className="team-designation">FOUNDER</div>
@@ -1299,7 +1299,7 @@ function App() {
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
                 <div className="team-avatar-wrapper">
-                  <img src="/assets/team/kiran-sai.jpeg" alt="M. Kiran Sai" loading="lazy" />
+                  <img src="/assets/team/kiran-sai.webp" alt="M. Kiran Sai" loading="lazy" />
                 </div>
                 <h3 className="team-name">M. Kiran Sai</h3>
                 <div className="team-designation">TECHNICAL MANAGER</div>
@@ -1461,7 +1461,7 @@ function App() {
             {/* Brand Column */}
             <div className="footer-col-brand">
               <div className="footer-logo-box">
-                <img src="/assets/adityasolar.jpg" alt="Aditya Solar Logo" className="footer-logo-img" loading="lazy" />
+                <img src="/assets/adityasolar.webp" alt="Aditya Solar Logo" className="footer-logo-img" loading="lazy" />
               </div>
               <p className="footer-desc-new">
                 Empowering Andhra Pradesh with premium, tailored solar solutions. Reduce your bills and transition to clean, reliable energy independence today.

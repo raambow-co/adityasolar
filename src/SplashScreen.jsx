@@ -49,7 +49,7 @@ const SplashScreen = ({ onComplete }) => {
             }}
           >
             <motion.img 
-              src="/assets/logoaboutus.png" 
+              src="/assets/logoaboutus.webp" 
               alt="Aditya Solar Logo"
               initial={{ filter: 'blur(10px)' }}
               animate={{ filter: 'blur(0px)' }}

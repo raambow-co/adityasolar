@@ -8,21 +8,21 @@ const teamMembers = [
     name: 'Vikas Teja M.',
     role: 'Founder & Proprietor',
     desc: 'B.Tech Electrical Engineer ensuring safe, technically appropriate system designs.',
-    image: '/assets/team/md-aditya-solar.jpg'
+    image: '/assets/team/md-aditya-solar.webp'
   },
   {
     id: 'vaddikasulu',
     name: 'M. Vaddikasulu',
     role: 'Father / Senior Advisor',
     desc: '18+ years of practical experience in solar products, installation, and field operations.',
-    image: '/assets/team/proprietor-aditya-solar.png'
+    image: '/assets/team/proprietor-aditya-solar.webp'
   },
   {
     id: 'kiran-sai',
     name: 'M. Kiran Sai',
     role: 'Brother / Technical Manager',
     desc: '6+ years of hands-on execution, testing, and system commissioning expertise.',
-    image: '/assets/team/kiran-sai.jpeg'
+    image: '/assets/team/kiran-sai.webp'
   }
 ];
 
