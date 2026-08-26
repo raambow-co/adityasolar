@@ -166,7 +166,7 @@ const teamMembers = [
   {
     id: 'vaddikasulu',
     name: 'M. Vaddikasulu',
-    role: 'PROPRIETOR',
+    role: 'FOUNDER',
     edu: 'Founder',
     image: '/assets/team/proprietor-aditya-solar.png',
     about: 'M. Vaddikasulu is the foundation of Aditya Solar Solutions, bringing unparalleled wisdom and deep-rooted knowledge to the company. His commitment to renewable energy and sustainable practices has been the driving force behind the business. With over 18+ years of extensive experience in the solar industry, he has a profound practical knowledge of solar products, installation practices, system design, and field-level challenges.',
@@ -474,7 +474,7 @@ const statContentMap = {
     subtitle: "Our Leadership & Experience",
     sections: [
       {
-        heading: "M. Vaddikasulu - Proprietor",
+        heading: "M. Vaddikasulu - Founder",
         desc: "25+ Years Experience. M. Vaddikasulu is the foundation of Aditya Solar Solutions. With 25+ years of extensive experience in the industry, he has profound practical knowledge of solar products, installation practices, system design, and field-level challenges. His expertise ensures that every project is built on reliable and proven methodologies."
       },
       {
@@ -1209,7 +1209,7 @@ function App() {
                 <div className="team-designation">MANAGING DIRECTOR</div>
               </motion.div>
 
-              {/* Middle: Proprietor (Featured) */}
+              {/* Middle: Founder (Featured) */}
               <motion.div 
                 className="team-member large"
                 onClick={() => setActivePage('vaddikasulu')}
@@ -1222,7 +1222,7 @@ function App() {
                   <img src="/assets/team/proprietor-aditya-solar.png" alt="M. Vaddikasulu" />
                 </div>
                 <h3 className="team-name">M. Vaddikasulu</h3>
-                <div className="team-designation">PROPRIETOR</div>
+                <div className="team-designation">FOUNDER</div>
               </motion.div>
 
               {/* Right: Technical Manager */}
@@ -1332,7 +1332,7 @@ function App() {
                 transition={{ duration: 0.6 }}
               >
                 <iframe 
-                  src="https://maps.google.com/maps?q=2P5C%2BQ7%20Kovvur%2C%20Andhra%20Pradesh&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                  src="https://maps.google.com/maps?q=aditya+solar+solutions,+opposite+Sai+Teja+gardens,+Kovvur,+Andhra+Pradesh+534350&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
