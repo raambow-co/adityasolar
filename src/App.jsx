@@ -169,9 +169,9 @@ const teamMembers = [
     role: 'PROPRIETOR',
     edu: 'Founder',
     image: '/assets/team/proprietor-aditya-solar.png',
-    about: 'M. Vaddikasulu is the foundation of Aditya Solar Solutions, bringing unparalleled wisdom and deep-rooted knowledge to the company. His commitment to renewable energy and sustainable practices has been the driving force behind the business. With over 16+ years of extensive experience in the solar industry, he has a profound practical knowledge of solar products, installation practices, system design, and field-level challenges.',
+    about: 'M. Vaddikasulu is the foundation of Aditya Solar Solutions, bringing unparalleled wisdom and deep-rooted knowledge to the company. His commitment to renewable energy and sustainable practices has been the driving force behind the business. With over 18+ years of extensive experience in the solar industry, he has a profound practical knowledge of solar products, installation practices, system design, and field-level challenges.',
     stats: [
-      { label: 'Years Experience', value: '16+' },
+      { label: 'Years Experience', value: '18+' },
       { label: 'Industry Knowledge', value: 'Expert' },
       { label: 'Projects Guided', value: '450+' }
     ]
@@ -470,7 +470,7 @@ const statContentMap = {
     ]
   },
   experience: {
-    title: "16+ Years Experience",
+    title: "18+ Years Experience",
     subtitle: "Our Leadership & Experience",
     sections: [
       {
@@ -1045,7 +1045,7 @@ function App() {
         <section style={{ backgroundColor: 'var(--primary-navy)', padding: '60px 0' }}>
           <div className="container">
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px', alignItems: 'center' }}>
-              <AnimatedStat end={16} suffix="+" label="Years Experience" onClick={() => setActiveStatModal('experience')} />
+              <AnimatedStat end={18} suffix="+" label="Years Experience" onClick={() => setActiveStatModal('experience')} />
               <AnimatedStat end={1100} suffix="+" label="Kgs CO2 Reduced" onClick={() => setActiveStatModal('co2')} />
               <AnimatedStat end={5000} suffix="+" label="Happy Customers" onClick={() => setActiveStatModal('customers')} />
               <div style={{ background: 'rgba(255,255,255,0.1)', padding: '24px', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.1)' }}>

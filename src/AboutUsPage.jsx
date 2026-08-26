@@ -14,7 +14,7 @@ const teamMembers = [
     id: 'vaddikasulu',
     name: 'M. Vaddikasulu',
     role: 'Father / Senior Advisor',
-    desc: '16+ years of practical experience in solar products, installation, and field operations.',
+    desc: '18+ years of practical experience in solar products, installation, and field operations.',
     image: '/assets/team/proprietor-aditya-solar.png'
   },
   {
@@ -107,7 +107,7 @@ const AboutUsPage = ({ onBack, onNavigate }) => {
                 <div style={{ display: 'flex', gap: '16px' }}>
                   <div style={{ background: '#fef08a', width: '32px', height: '32px', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold', color: '#ca8a04', flexShrink: 0 }}>1</div>
                   <p style={{ color: '#475569', fontSize: '15px', lineHeight: '1.6', margin: 0 }}>
-                    <strong style={{ color: 'var(--primary-navy)' }}>16+ Years of Collective Wisdom:</strong> Unmatched practical knowledge of solar products and field-level challenges.
+                    <strong style={{ color: 'var(--primary-navy)' }}>18+ Years of Collective Wisdom:</strong> Unmatched practical knowledge of solar products and field-level challenges.
                   </p>
                 </div>
                 <div style={{ display: 'flex', gap: '16px' }}>
