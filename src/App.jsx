@@ -571,7 +571,9 @@ const TrustedPartners = () => {
     '/assets/partners/partner1.jpeg',
     '/assets/partners/partner2.jpeg',
     '/assets/partners/partner3.jpeg',
-    '/assets/partners/partner4.jpeg'
+    '/assets/partners/partner4.jpeg',
+    '/assets/partners/deye.png',
+    '/assets/partners/waacab.jpeg'
   ];
 
   return (
