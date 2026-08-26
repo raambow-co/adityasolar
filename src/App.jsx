@@ -904,12 +904,13 @@ function App() {
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-              <motion.div className="hero-badge" variants={fadeUpVariant}>
+              <motion.h2 className="hero-badge" variants={fadeUpVariant} style={{ margin: 0, fontSize: 'inherit', fontWeight: 'inherit' }}>
                 <div className="hero-badge-dot"></div>
-                <span style={{ color: 'white' }}>ANDHRA'S MOST TRUSTED SOLAR PARTNER</span>
-              </motion.div>
+                <span style={{ color: 'white' }}>ADITYA SOLAR SOLUTIONS - KOVVUR & RAJAHMUNDRY, AP</span>
+              </motion.h2>
               
               <motion.h1 className="hero-heading" variants={fadeUpVariant}>
+                <div style={{ whiteSpace: 'nowrap', fontSize: '0.45em', opacity: 0.9, marginBottom: '10px', textTransform: 'none', letterSpacing: 'normal' }}>Best Solar Panels Near Me</div>
                 <div style={{ whiteSpace: 'nowrap' }}>Power your future</div>
                 <span>Switch to solar</span>
               </motion.h1>
