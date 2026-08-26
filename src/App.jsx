@@ -1332,7 +1332,7 @@ function App() {
                 transition={{ duration: 0.6 }}
               >
                 <iframe 
-                  src="https://maps.google.com/maps?q=Kovvur,Andhra%20Pradesh&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                  src="https://maps.google.com/maps?q=2P5C%2BQ7%20Kovvur%2C%20Andhra%20Pradesh&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
