@@ -880,6 +880,9 @@ function App() {
                 <a href="https://www.instagram.com/adityasolarsolutions.info/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', background: 'var(--accent-yellow)', color: 'var(--primary-navy)', border: 'none', borderRadius: '50%', cursor: 'pointer', textDecoration: 'none' }}>
                   <InstagramIcon />
                 </a>
+                <a href="https://www.facebook.com/profile.php?id=61576413847725" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', background: 'var(--accent-yellow)', color: 'var(--primary-navy)', border: 'none', borderRadius: '50%', cursor: 'pointer', textDecoration: 'none' }}>
+                  <FacebookIcon />
+                </a>
               </motion.div>
             </motion.div>
             
@@ -1407,7 +1410,7 @@ function App() {
               </p>
               <div className="footer-socials">
                 <a href="https://www.instagram.com/adityasolarsolutions.info/" target="_blank" rel="noopener noreferrer" className="social-icon-new" style={{ color: '#E1306C', borderColor: '#E1306C' }}><InstagramIcon /></a>
-                <a href="#" className="social-icon-new" style={{ color: '#1877F2', borderColor: '#1877F2' }}><FacebookIcon /></a>
+                <a href="https://www.facebook.com/profile.php?id=61576413847725" target="_blank" rel="noopener noreferrer" className="social-icon-new" style={{ color: '#1877F2', borderColor: '#1877F2' }}><FacebookIcon /></a>
                 <a href="#" className="social-icon-new" style={{ color: '#0A66C2', borderColor: '#0A66C2' }}><LinkedinIcon /></a>
                 <a href="#" className="social-icon-new" style={{ color: '#FF0000', borderColor: '#FF0000' }}><YoutubeIcon /></a>
               </div>
