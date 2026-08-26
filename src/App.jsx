@@ -589,7 +589,7 @@ const TrustedPartners = () => {
         <div className="marquee-container">
           {[...partners, ...partners, ...partners, ...partners].map((logo, index) => (
             <div key={index} className="partner-card">
-              <img src={logo} alt={`Partner ${index + 1}`} />
+              <img src={logo} alt={`Partner ${index + 1}`} loading="lazy" />
             </div>
           ))}
         </div>
@@ -975,6 +975,7 @@ function App() {
                   src="/assets/logoaboutus.png" 
                   alt="Aditya Solar Solutions Logo" 
                   className="intro-image"
+                  loading="lazy"
                 />
                 
                 {/* Overlay & Text */}
@@ -1157,6 +1158,7 @@ function App() {
                   src="/assets/pm-surya-ghar.png" 
                   alt="PM Surya Ghar Rooftop Solar" 
                   style={{ width: '100%', height: '100%', objectFit: 'contain', minHeight: '400px' }} 
+                  loading="lazy"
                 />
                 {/* Black Gradient Overlay */}
                 <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '200px', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)', pointerEvents: 'none' }} />
@@ -1209,7 +1211,7 @@ function App() {
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
                 <div className="team-avatar-wrapper">
-                  <img src="/assets/team/md-aditya-solar.jpg" alt="M. Vikas Teja" />
+                  <img src="/assets/team/md-aditya-solar.jpg" alt="M. Vikas Teja" loading="lazy" />
                 </div>
                 <h3 className="team-name">M. Vikas Teja</h3>
                 <div className="team-designation">MANAGING DIRECTOR</div>
@@ -1225,7 +1227,7 @@ function App() {
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 <div className="team-avatar-wrapper">
-                  <img src="/assets/team/proprietor-aditya-solar.png" alt="M. Vaddikasulu" />
+                  <img src="/assets/team/proprietor-aditya-solar.png" alt="M. Vaddikasulu" loading="lazy" />
                 </div>
                 <h3 className="team-name">M. Vaddikasulu</h3>
                 <div className="team-designation">FOUNDER</div>
@@ -1241,7 +1243,7 @@ function App() {
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
                 <div className="team-avatar-wrapper">
-                  <img src="/assets/team/kiran-sai.jpeg" alt="M. Kiran Sai" />
+                  <img src="/assets/team/kiran-sai.jpeg" alt="M. Kiran Sai" loading="lazy" />
                 </div>
                 <h3 className="team-name">M. Kiran Sai</h3>
                 <div className="team-designation">TECHNICAL MANAGER</div>
@@ -1403,7 +1405,7 @@ function App() {
             {/* Brand Column */}
             <div className="footer-col-brand">
               <div className="footer-logo-box">
-                <img src="/assets/adityasolar.jpg" alt="Aditya Solar Logo" className="footer-logo-img" />
+                <img src="/assets/adityasolar.jpg" alt="Aditya Solar Logo" className="footer-logo-img" loading="lazy" />
               </div>
               <p className="footer-desc-new">
                 Empowering Andhra Pradesh with premium, tailored solar solutions. Reduce your bills and transition to clean, reliable energy independence today.
